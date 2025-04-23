@@ -1,36 +1,100 @@
 module.exports = {
     // Discord Bot Token
-    token: process.env.DISCORD_TOKEN,
+    token: 'MTM2NDY2NzQwMzE2NTc2NTc3NQ.GID8_o.pjl-1WrqvKS1tMkMvQGDifnMWhUDpCkoC4Bc6k',
     
     // Mod Logs Channel ID
-    modLogsChannelId: process.env.MOD_LOGS_CHANNEL_ID,
+    modLogsChannelId: '1364616986352422932',
     
     // Spam Detection Settings
     spamSettings: {
         // Message flood settings
-        messageLimit: process.env.MESSAGE_LIMIT || 5,      // Maximum messages allowed
-        timeWindow: process.env.TIME_WINDOW || 5000,     // Time window in milliseconds (5 seconds)
-        timeoutDuration: process.env.TIMEOUT_DURATION || 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+        messageLimit: 5,      // Maximum messages allowed
+        timeWindow: 5000,     // Time window in milliseconds (5 seconds)
+        timeoutDuration: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
         
         // Allowed domains for links
-        allowedDomains: (process.env.ALLOWED_DOMAINS || '').split(','),
+        allowedDomains: [
+            // Google domains
+            'google.com',
+            'googleapis.com',
+            'google.co',
+            'google.ai',
+            'googleusercontent.com',
+            'googlevideo.com',
+            'googleadservices.com',
+            'googleanalytics.com',
+            'googleblog.com',
+            'googlebot.com',
+            'googlecode.com',
+            'googlecommerce.com',
+            'googledrive.com',
+            'googleearth.com',
+            'googlemail.com',
+            'googlemaps.com',
+            'googlepagecreator.com',
+            'googlescholar.com',
+            'googlesource.com',
+            'googlesyndication.com',
+            'googletagmanager.com',
+            'googletagservices.com',
+            'googleusercontent.com',
+            'gstatic.com',
+            'chrome.com',
+            'chromium.org',
+            'ggpht.com',
+            'gmail.com',
+            'goo.gl',
+            'goog',
+            
+            // YouTube domains
+            'youtube.com',
+            'youtu.be',
+            'youtube-nocookie.com',
+            'youtubeeducation.com',
+            'youtubegaming.com',
+            'youtubei.com',
+            'youtubekids.com',
+            'yt.be',
+            'ytimg.com',
+            
+            // Other Google services
+            'blogger.com',
+            'blogspot.com',
+            'chromebook.com',
+            'doubleclick.net',
+            'feedburner.com',
+            'firebaseio.com',
+            'g.co',
+            'gcr.io',
+            'golang.org',
+            'keyhole.com',
+            'madewithcode.com',
+            'panoramio.com',
+            'picasa.com',
+            'android.com',
+            'tensorflow.org',
+            'tfhub.dev',
+            'waze.com',
+            'whatbrowser.org',
+            'withgoogle.com'
+        ],
         
         // Spam detection thresholds
-        maxEmojis: process.env.MAX_EMOJIS || 5,
-        maxSpaces: process.env.MAX_SPACES || 3,
-        maxPunctuation: process.env.MAX_PUNCTUATION || 3,
-        maxMentions: process.env.MAX_MENTIONS || 3,
-        maxLineBreaks: process.env.MAX_LINE_BREAKS || 3,
-        maxSpecialCharRatio: process.env.MAX_SPECIAL_CHAR_RATIO || 0.3,
-        maxWordRepetition: process.env.MAX_WORD_REPETITION || 3,
-        maxMessageLength: process.env.MAX_MESSAGE_LENGTH || 2000,
-        maxAttachments: process.env.MAX_ATTACHMENTS || 3,
-        maxEmbeds: process.env.MAX_EMBEDS || 1,
-        maxRoleMentions: process.env.MAX_ROLE_MENTIONS || 3,
-        maxChannelMentions: process.env.MAX_CHANNEL_MENTIONS || 3,
-        maxCustomEmoji: process.env.MAX_CUSTOM_EMOJI || 5,
-        maxUnicodeEmoji: process.env.MAX_UNICODE_EMOJI || 5,
-        maxSpoilerTags: process.env.MAX_SPOILER_TAGS || 3,
-        maxCodeBlocks: process.env.MAX_CODE_BLOCKS || 2
+        maxEmojis: 5,
+        maxSpaces: 3,
+        maxPunctuation: 3,
+        maxMentions: 3,
+        maxLineBreaks: 3,
+        maxSpecialCharRatio: 0.3,
+        maxWordRepetition: 3,
+        maxMessageLength: 2000,
+        maxAttachments: 3,
+        maxEmbeds: 1,
+        maxRoleMentions: 3,
+        maxChannelMentions: 3,
+        maxCustomEmoji: 5,
+        maxUnicodeEmoji: 5,
+        maxSpoilerTags: 3,
+        maxCodeBlocks: 2
     }
 }; 
