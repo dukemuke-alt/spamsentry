@@ -10,8 +10,9 @@ module.exports = {
     // Spam Detection Settings
     spamSettings: {
         // Message flood settings
-        messageLimit: 5,      // Maximum messages allowed
+        messageLimit: 5,      // Maximum messages allowed in time window
         timeWindow: 5000,     // Time window in milliseconds (5 seconds)
+        totalMessageLimit: 10, // Total messages before mute
         timeoutDuration: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
         
         // Allowed domains for links
@@ -82,7 +83,7 @@ module.exports = {
         ],
         
         // Spam detection thresholds
-        maxEmojis: 5,
+        maxEmojis: 3,         // Maximum emojis allowed (reduced from 5)
         maxSpaces: 3,
         maxPunctuation: 3,
         maxMentions: 3,

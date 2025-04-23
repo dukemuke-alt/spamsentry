@@ -70,11 +70,11 @@ function isSpamMessage(message) {
         return 'Repeated message detected';
     }
 
-    // Check for excessive emojis
+    // Check for excessive emojis (more than 3)
     const emojiRegex = /<a?:.+?:\d+>|[\u{1F300}-\u{1F9FF}]/gu;
     const emojiCount = (content.match(emojiRegex) || []).length;
-    if (emojiCount > config.spamSettings.maxEmojis) {
-        return 'Excessive emojis detected';
+    if (emojiCount > 3) {
+        return 'Excessive emojis detected (more than 3)';
     }
 
     // Check for excessive spaces
@@ -192,9 +192,20 @@ function checkMessageFlood(message) {
     const recentMessages = userMessages.filter(msg => now - msg.time < config.spamSettings.timeWindow);
     messageCooldown.set(userId, recentMessages);
     
-    // Check for message flooding (3 messages in 5 seconds)
-    if (recentMessages.length >= 3) {
-        return 'Message flooding detected (3 messages in 5 seconds)';
+    // Check for same message flooding (5 messages in 5 seconds)
+    const sameMessageCount = recentMessages.filter(msg => msg.content === message.content).length;
+    if (sameMessageCount >= 5) {
+        return 'Same message flooding detected (5 messages in 5 seconds)';
+    }
+    
+    // Check for random message flooding (5 messages in 5 seconds)
+    if (recentMessages.length >= 5) {
+        return 'Message flooding detected (5 messages in 5 seconds)';
+    }
+    
+    // Check for total message count (10 messages)
+    if (userMessages.length >= 10) {
+        return 'Excessive total messages detected (10 messages)';
     }
     
     return false;
